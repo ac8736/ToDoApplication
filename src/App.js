@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./components/Home";
+import Navigation from "./components/Navigation";
+import Signin from "./components/Signin";
+import Register from "./components/Register";
+import Main from "./components/Main";
+import AddTask from "./components/AddTask";
+import { useState } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
+  console.log(isAuth);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navigation />
+      <Routes>
+        <Route exact path="/" element={<Home setAuth={(signedIn) => setIsAuth(signedIn)} />} />
+        <Route path="/signin" element={<Signin setAuth={(signedIn) => setIsAuth(signedIn)} />} />
+        <Route path="/register" element={<Register setAuth={(signedIn) => setIsAuth(signedIn)} />} />
+        <Route path="/main" element={<Main isAuth={isAuth} setAuth={(signedIn) => setIsAuth(signedIn)} />} />
+        <Route path="/add" element={<AddTask isAuth={isAuth} />} />
+      </Routes>
+    </Router>
   );
 }
 

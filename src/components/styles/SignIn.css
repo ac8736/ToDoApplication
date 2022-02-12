@@ -1,0 +1,33 @@
+.signin--container {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  margin: auto;
+  align-items: center;
+  gap: 15px;
+  margin-top: 7rem;
+}
+
+.signin--container > input {
+  height: 1.5rem;
+  padding: 5px 5px;
+  width: 50%;
+  font-size: 1.5rem;
+}
+
+.signin--container > h2 {
+  font-size: 2.5rem;
+}
+
+.register {
+  color: black;
+}
+
+.submit {
+  font-size: larger;
+  padding: 2px 5px;
+}
+
+.submit:hover {
+  cursor: pointer;
+}

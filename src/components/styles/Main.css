@@ -1,0 +1,34 @@
+.signout {
+  padding: 3rem 3rem;
+  margin-left: auto;
+  width: 5%;
+}
+
+.signout > button {
+  font-size: larger;
+  padding: 2px 5px;
+}
+
+.signout > button:hover {
+  cursor: pointer;
+}
+
+.add {
+  padding: 3rem 3rem;
+  margin: auto;
+  width: 5%;
+}
+
+.add > button {
+  font-size: larger;
+  padding: 2px 5px;
+}
+
+.add > button:hover {
+  cursor: pointer;
+}
+
+.add-link {
+  text-decoration: none;
+  color: black;
+}

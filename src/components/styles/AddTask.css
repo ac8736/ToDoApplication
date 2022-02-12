@@ -1,0 +1,36 @@
+.addTask--container {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  margin: auto;
+  margin-top: 6rem;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.addTask--container > input {
+  font-size: larger;
+  padding: 2px 5px;
+  width: 35%;
+}
+
+.addtask-title {
+  margin-top: 6rem;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.addtask-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.addtask-button > button {
+  font-size: larger;
+  padding: 2px 5px;
+}
+
+.addtask-button > button:hover {
+  cursor: pointer;
+}
