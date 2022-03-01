@@ -8,7 +8,7 @@ function ToDoCard(props) {
     await deleteDoc(postDoc);
     props.refresh();
   }
-
+  console.log("Entered cards");
   return (
     <div className="ToDoCard">
       <h2>{props.title}</h2>

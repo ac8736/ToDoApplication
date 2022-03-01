@@ -1,6 +1,6 @@
 import "./styles/SignIn.css";
 import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../firebase-config";
 
@@ -11,6 +11,7 @@ function Signin(props) {
 
   async function signOn() {
     try {
+      await setPersistence(auth, browserSessionPersistence);
       await signInWithEmailAndPassword(auth, email, password);
       props.setAuth(true);
       navigate("/main");

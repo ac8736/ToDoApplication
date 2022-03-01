@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { db, auth } from "../firebase-config";
+import { onAuthStateChanged } from "firebase/auth";
 import "./styles/AddTask.css";
 
-function AddTask(props) {
+function AddTask() {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
@@ -12,12 +13,15 @@ function AddTask(props) {
   const [classes, setClasses] = useState("");
 
   const postsCollectionRef = collection(db, "ToDos");
+  console.log("Entered add tasks");
 
-  useEffect(() => {
-    if (!props.isAuth) {
-      navigate("/login");
+  onAuthStateChanged(auth, (user) => {
+    console.log(user);
+    if (!user) {
+      console.log("no user");
+      navigate("/");
     }
-  }, []);
+  });
 
   async function handleClick() {
     try {

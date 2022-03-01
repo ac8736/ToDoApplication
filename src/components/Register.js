@@ -2,7 +2,7 @@ import "./styles/SignIn.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../firebase-config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 function Register(props) {
@@ -12,6 +12,7 @@ function Register(props) {
 
   async function register() {
     try {
+      await setPersistence(auth, browserSessionPersistence);
       await createUserWithEmailAndPassword(auth, email, password);
       props.setAuth(true);
       navigate("/main");

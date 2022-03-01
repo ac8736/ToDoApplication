@@ -1,6 +1,6 @@
 import "./styles/Main.css";
 import ToDoCard from "./ToDoCard";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { db, auth } from "../firebase-config";
 import { useNavigate, Link } from "react-router-dom";
 import { getDocs, collection } from "firebase/firestore";
@@ -9,11 +9,11 @@ import React, { useEffect, useState } from "react";
 function Main(props) {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!props.isAuth) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!props.isAuth) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   const [postLists, setPostLists] = useState([]);
   const [update, setUpdate] = useState(true);
@@ -38,9 +38,14 @@ function Main(props) {
   }
 
   function refresh() {
-    console.log("RAN");
     setUpdate((prev) => !prev);
   }
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("user entered");
+    }
+  });
 
   const newPosts = postLists.map((post) => {
     if (auth.currentUser.uid === post.author.id) {
@@ -52,15 +57,15 @@ function Main(props) {
 
   return (
     <div>
-      <div className="signout">{props.isAuth && <button onClick={logOut}>Sign Out</button>}</div>
+      <div className="signout">
+        <button onClick={logOut}>Sign Out</button>
+      </div>
       <div className="add">
-        {props.isAuth && (
-          <button>
-            <Link className="add-link" to="/add">
-              Add Task
-            </Link>
-          </button>
-        )}
+        <button>
+          <Link className="add-link" to="/add">
+            Add Task
+          </Link>
+        </button>
       </div>
       {newPosts}
     </div>
