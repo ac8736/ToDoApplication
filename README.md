@@ -9,6 +9,7 @@ This application was built using React.js, with Firebase serving as the backend 
 The front end of this application was built using Reactjs. To be able to run the development build, please download the latest version of node.js. It can be downloaded via this link: https://nodejs.org/en/.
 
 Run `npm install` when inside the project directory to install all the dependencies required to run the build.
+
 Run `npm start` after downloading the dependencies to start the development server and run the web app on your localhost.
 
 ### Firebase
