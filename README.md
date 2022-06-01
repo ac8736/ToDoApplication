@@ -18,7 +18,7 @@ Head to https://firebase.google.com/ and create an account. Log in and add a new
 
 Use an .env file to store your API keys and other information is recommended for security reasons.
 
-### Current Built
+### Current Build
 ![homepage](https://user-images.githubusercontent.com/87680132/171307650-bf71b82f-4491-4990-bd84-f1eb8870f86b.png)
 ![signin](https://user-images.githubusercontent.com/87680132/171308630-11b8b47c-a573-404d-b416-d30421375123.png)
 ![example](https://user-images.githubusercontent.com/87680132/171308864-3387038d-c835-4c58-ac9d-f36523f6e138.png)
